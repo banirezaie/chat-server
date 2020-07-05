@@ -14,6 +14,16 @@ const ChatBody = () => {
   return (
     <div>
       <h2>Send a message</h2>
+      <div>
+        {jsonData.map((text, i) => {
+          return (
+            <div key={i} className="eachMessage">
+              <p>{text.from}</p>
+              <p>{text.text}</p>
+            </div>
+          );
+        })}
+      </div>
       <form
         action="https://immense-basin-46859.herokuapp.com/messages"
         method="post"
@@ -26,9 +36,6 @@ const ChatBody = () => {
         </p>
         <button type="submit">Send</button>
       </form>
-      <a className="App-link" href={jsonData}>
-        See all messages
-      </a>
     </div>
   );
 };
